@@ -59,5 +59,5 @@ request_dict = {'pickup_datetime': datetime.datetime(2012,10,6, 12,10,20),
 predict_dict = requests.get(url, params=request_dict).text
 
 st.markdown('''
-            The predicted price: ''' )
+            ## The predicted price: ''' )
 predict_dict[8:13]
