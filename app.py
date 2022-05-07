@@ -1,4 +1,6 @@
 import streamlit as st
+import requests
+import datetime
 
 '''
 # TaxiFareModel front
@@ -46,3 +48,16 @@ if url == 'https://taxifare.lewagon.ai/predict':
 
 ## Finally, we can display the prediction to the user
 '''
+
+request_dict = {'pickup_datetime': datetime.datetime(2012,10,6, 12,10,20),
+                'pickup_longitude': float(40.7614327),
+                'pickup_latitude': float(-73.9798156),
+                'dropoff_longitude': float(40.6513111),
+                'dropoff_latitude': float(-73.8803331),
+                'passenger_count': int(2)}
+
+predict_dict = requests.get(url, params=request_dict).text
+
+st.markdown('''
+            The predicted price: ''' )
+predict_dict[8:13]
